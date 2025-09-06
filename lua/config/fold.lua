@@ -1,0 +1,81 @@
+-- 折叠基础配置
+-- vim.o.foldcolumn = '0'     -- 不显示折叠列
+-- vim.o.foldlevel = 99       -- 初始展开所有折叠
+-- vim.o.foldlevelstart = 99  -- 启动时展开所有折叠
+-- vim.o.foldenable = true    -- 启用折叠
+-- vim.o.foldmethod = 'expr'  -- 使用表达式折叠
+-- vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'  -- 使用树形语法分析器计算折叠
+--
+-- -- 更清晰的 fillchars 配置
+-- vim.o.fillchars = {
+--   eob = ' ',       -- 缓冲区末尾空白字符
+--   fold = ' ',      -- 折叠填充字符
+--   foldopen = '',  -- 打开折叠的图标
+--   foldsep = ' ',   -- 折叠分隔符
+--   foldclose = ''  -- 关闭折叠的图标
+-- }
+--
+-- -- 带语义高亮和树形语法分析器支持的虚拟文本生成
+-- local function generate_fold_virt_text(result, line_text, line_num)
+--   local current_text = ''
+--   local current_hl = nil
+--
+--   for i = 1, #line_text do
+--     local char = line_text:sub(i, i)
+--     local new_hl = nil
+--
+--     -- 优先使用 LSP 语义标记
+--     local sem_tokens = vim.lsp.semantic_tokens.get_at_pos(0, line_num, i - 1)
+--     if sem_tokens and #sem_tokens > 0 then
+--       new_hl = '@' .. sem_tokens[#sem_tokens].type
+--     else
+--       -- 回退到树形语法分析器高亮
+--       local ts_highlights = vim.treesitter.get_captures_at_pos(0, line_num, i - 1)
+--       if ts_highlights[#ts_highlights] then
+--         new_hl = '@' .. ts_highlights[#ts_highlights].capture
+--       end
+--     end
+--
+--     -- 高亮组变化时提交当前文本段
+--     if new_hl ~= current_hl then
+--       if current_text ~= '' then
+--         table.insert(result, { current_text, current_hl })
+--         current_text = ''
+--       end
+--       current_hl = new_hl
+--     end
+--
+--     current_text = current_text .. char
+--   end
+--
+--   -- 提交最后一段文本
+--   if current_text ~= '' then
+--     table.insert(result, { current_text, current_hl })
+--   end
+-- end
+--
+-- -- 自定义折叠文本显示
+-- function _G.custom_foldtext()
+--   local fold_start = vim.v.foldstart
+--   local fold_end = vim.v.foldend
+--   local line_count = fold_end - fold_start
+--
+--   -- 获取并处理起始行文本
+--   local start_line = vim.fn.getline(fold_start)
+--   local expanded_tabs = start_line:gsub('\t', string.rep(' ', vim.o.tabstop))
+--
+--   -- 构建折叠文本
+--   local result = {}
+--   generate_fold_virt_text(result, expanded_tabs, fold_start - 1)
+--
+--   -- 添加折叠信息
+--   table.insert(result, { ' ', nil })
+--   table.insert(result, { '◖', '@comment.warning.gitcommit' })
+--   table.insert(result, { '↙ ' .. line_count .. ' lines', '@comment.warning' })
+--   table.insert(result, { '◗', '@comment.warning.gitcommit' })
+--
+--   return result
+-- end
+--
+-- -- 应用配置
+-- vim.opt.foldtext = 'v:lua.custom_foldtext()'
