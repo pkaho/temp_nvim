@@ -98,22 +98,8 @@ vim.api.nvim_create_autocmd("LspNotify", {
 	end,
 })
 
--- 当光标停留在错误行时显示浮动窗口
--- vim.api.nvim_create_autocmd('CursorHold', {
---     callback = function()
---         local opts = {
---             focusable = false,
---             close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
---             border = 'rounded',
---             source = 'always',
---             prefix = ' ',
---         }
---         vim.diagnostic.open_float(nil, opts)
---     end
--- })
-
 -- 更智能的显示（仅在诊断存在的行触发）
-local ns = vim.api.nvim_create_namespace("dynamic_diag")
+-- local ns = vim.api.nvim_create_namespace("dynamic_diag")
 -- vim.api.nvim_create_autocmd({'CursorMoved', 'CursorMovedI', 'CursorHold'}, {
 --     callback = function()
 --         -- 清除之前的高亮
