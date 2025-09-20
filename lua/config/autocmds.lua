@@ -1,5 +1,5 @@
 local function augroup(name)
-	return vim.api.nvim_create_augroup(name, { clear = true })
+	return vim.api.nvim_create_augroup("panjh_" .. name, { clear = true })
 end
 
 -- 禁用换行自动添加注释
@@ -129,3 +129,13 @@ vim.api.nvim_create_autocmd("LspNotify", {
 --         })
 --     end
 -- })
+
+-- 每次保存文件前删除空行中的空格
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	group = augroup("clear_white_space"),
+	callback = function()
+		vim.cmd("silent! %s/\\s\\+$//e")
+		vim.cmd("silent! %s/^\\s\\+$//e")
+	end,
+})
