@@ -135,7 +135,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	group = augroup("clear_white_space"),
 	callback = function()
+		local line, col = unpack(vim.api.nvim_win_get_cursor(0)) -- 保存当前位置
 		vim.cmd("silent! %s/\\s\\+$//e")
 		vim.cmd("silent! %s/^\\s\\+$//e")
+		vim.api.nvim_win_set_cursor(0, { line, col }) -- 恢复光标位置
 	end,
 })
