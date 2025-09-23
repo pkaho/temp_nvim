@@ -6,6 +6,19 @@ return {
 		dependencies = { "rafamadriz/friendly-snippets" },
 		opts = {
 			completion = { documentation = { auto_show = false } },
+			cmdline = {
+				enabled = true,
+				keymap = { preset = "cmdline" },
+				completion = {
+					list = { selection = { preselect = false } },
+					menu = {
+						auto_show = function(ctx)
+							return vim.fn.getcmdtype() == ":"
+						end,
+					},
+					ghost_text = { enabled = true },
+				},
+			},
 			sources = {
 				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 				providers = {
