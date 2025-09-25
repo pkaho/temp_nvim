@@ -9,6 +9,7 @@ map({ "n", "i", "x", "s" }, "<C-s>", "<cmd>w<CR><esc>", { desc = "Save File" })
 map("n", "<leader>L", "<cmd>Lazy<CR>", { desc = "Lazy" })
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 map("n", "<leader>R", "<cmd>source $MYVIMRC<CR>", { desc = "Reload Config" })
+map("n", "<leader>qq", "<cmd>qall<CR>", { desc = "Quit" })
 
 -- wrap 启用的时候, 不会跳过续行
 map({ "n", "x" }, "j", 'v:count == 0 ? "gj" : "j"', { desc = "Down", expr = true, silent = true })
@@ -61,10 +62,10 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<CR>", { desc = "Previous Tab" })
 
 -- foldmethod 在手动和表达式之间切换
 map("n", "<leader>uf", function()
-    if vim.opt.foldmethod:get() == "manual" then
-        vim.cmd("set foldmethod=expr")
-    else
-        vim.cmd("set foldmethod=manual")
-    end
-    print("Foldmethod: ", vim.opt.foldmethod:get())
+	if vim.opt.foldmethod:get() == "manual" then
+		vim.cmd("set foldmethod=expr")
+	else
+		vim.cmd("set foldmethod=manual")
+	end
+	print("Foldmethod: ", vim.opt.foldmethod:get())
 end, { desc = "Switch Foldmethod" })
