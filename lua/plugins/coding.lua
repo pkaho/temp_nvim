@@ -1,12 +1,4 @@
 return {
-	-- 多光标
-	{
-		"jake-stewart/multicursor.nvim",
-		enabled = false,
-		branch = "1.0",
-		opts = {},
-	},
-
 	-- 括号
 	{
 		"altermo/ultimate-autopair.nvim",

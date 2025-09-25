@@ -172,23 +172,6 @@ return {
 		opts = {},
 	},
 
-	-- Neovim的任务运行器和作业管理插件
-	{
-		"stevearc/overseer.nvim",
-		enabled = false,
-		event = "VeryLazy",
-		opts = {},
-	},
-
-	-- 像 Cursor 一样
-	{
-		"yetone/avante.nvim",
-		event = "VeryLazy",
-		enabled = false,
-		lazy = true,
-		opts = {},
-	},
-
 	-- 浮动状态栏, winbar 的替代方案
 	-- {
 	-- 	"b0o/incline.nvim",
