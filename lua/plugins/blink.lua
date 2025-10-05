@@ -30,6 +30,7 @@ return {
 					},
 				},
 			},
+			signature = { enabled = true },
 		},
 	},
 
