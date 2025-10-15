@@ -125,6 +125,7 @@ return {
 				bottom_search = true,
 				command_palette = true,
 				long_message_to_split = true,
+				inc_rename = false, -- 激活 inc-rename.nvim 的输入对话框
 			},
 		},
         -- stylua: ignore
