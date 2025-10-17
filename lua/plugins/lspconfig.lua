@@ -156,11 +156,14 @@ return {
 					lualine_c = {
 						{
 							function()
-								return require("nvim-navic").get_location()
+								local location = require("nvim-navic").get_location()
+								return location ~= "" and location or "👊👴👊"
 							end,
 							cond = function()
-								return require("nvim-navic").is_available()
+								-- return require("nvim-navic").is_available()
+								return true
 							end,
+							color = { fg = "Normal" },
 						},
 					},
 				},
