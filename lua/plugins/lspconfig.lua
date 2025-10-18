@@ -37,7 +37,7 @@ return {
 		config = function()
 			vim.lsp.enable({
 				"lua_ls",
-				"basedpyright",
+				"pyright",
 			})
 
 			vim.api.nvim_create_autocmd("LspAttach", {
