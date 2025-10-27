@@ -17,6 +17,8 @@ return {
 			{ "<leader>e",       "<cmd>lua Snacks.explorer()<CR>",            desc = "Explorer" },
 			{ "<leader>cz",      "<cmd>lua Snacks.zen.zoom()<CR>",            desc = "Toggle Zoom" },
 			{ "<leader>cZ",      "<cmd>lua Snacks.zen()<CR>",                 desc = "Toggle Zen" },
+            { "<c-/>",      function() Snacks.terminal() end, desc = "Toggle Terminal" },
+            { "<c-_>",      function() Snacks.terminal() end, desc = "which_key_ignore" },
 		},
 		opts = {
 			-- your configuration comes here
