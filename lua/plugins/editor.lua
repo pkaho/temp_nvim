@@ -176,17 +176,16 @@ return {
 			--         require('dap-python').setup('uv')
 			--     end
 			-- }, --optional
-			{ "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
+			-- { "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { "nvim-lua/plenary.nvim" } },
 		},
-		branch = "regexp", -- This is the regexp branch, use this for the new version
+		ft = "python",
+		branch = "main",
 		keys = {
 			{ "<leader>vs", "<cmd>VenvSelect<cr>", desc = "Python Venv Select" },
 		},
 		opts = {
-			settings = {
-				options = {
-					picker = "snacks",
-				},
+			options = {
+				picker = "snacks",
 			},
 		},
 	},
