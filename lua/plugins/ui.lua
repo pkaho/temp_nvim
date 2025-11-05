@@ -13,6 +13,8 @@ return {
 			{ '<leader>"',       "<cmd>lua Snacks.picker.registers()<CR>",    desc = "Registers" },
 			{ "<leader>sh",      "<cmd>lua Snacks.picker.help()<CR>",         desc = "Search Help" },
 			{ "<leader>sb",      "<cmd>lua Snacks.picker.grep_buffers()<CR>", desc = "Grep inside Buffers" },
+			{ "<leader>sp",      "<cmd>lua Snacks.picker.projects()<CR>",     desc = "Search .git Projects" },
+			{ "<leader>sk",      "<cmd>lua Snacks.picker.keymaps()<CR>",      desc = "Search Keymaps" },
 			{ "<leader>,",       "<cmd>lua Snacks.picker.buffers()<CR>",      desc = "Search Buffers" },
 			{ "<leader>e",       "<cmd>lua Snacks.explorer()<CR>",            desc = "Explorer" },
 			{ "<leader>cz",      "<cmd>lua Snacks.zen.zoom()<CR>",            desc = "Toggle Zoom" },
