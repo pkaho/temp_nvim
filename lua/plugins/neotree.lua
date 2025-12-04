@@ -9,7 +9,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		keys = {
-			{ "<leader>e", "<cmd>Neotree toggle reveal<cr>", desc = "Neotree" },
+			{ "<leader>e", "<cmd>Neotree toggle reveal<CR>", desc = "Neotree" },
 		},
 		opts = {
 			sources_selector = {

@@ -4,7 +4,7 @@ return {
 		"zaldih/themery.nvim",
 		lazy = false, -- 必须 eager 加载, 否则 <leader>uc 无法使用
 		keys = {
-			{ "<leader>uc", "<cmd>Themery<cr>", desc = "Select Color Theme" },
+			{ "<leader>uc", "<cmd>Themery<CR>", desc = "Select Color Theme" },
 		},
 		dependencies = {
 			-- 所有支持的主题插件作为依赖
