@@ -46,8 +46,8 @@ opt.signcolumn = "yes" -- 显示符号列
 opt.numberwidth = 4 -- 行号列宽度
 
 -- Tab 缩进
-opt.expandtab = true -- Tab 转换成空格
-opt.tabstop = tab_size -- Tab 显示的宽度
+opt.expandtab = true -- Tab 转空格
+opt.tabstop = tab_size -- Tab 显示宽度
 opt.softtabstop = tab_size -- 编辑时tab键插入的空格数
 opt.shiftwidth = tab_size -- 自动缩进宽度
 opt.shiftround = true -- 缩进时对齐到 shiftwidth 的倍数
