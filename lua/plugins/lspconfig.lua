@@ -150,11 +150,13 @@ return {
                 lsp = {
                     auto_attach = true,
                 },
+                depth_limit = 2
             })
 
             -- 如果是在下面单独设置的话, lualine 的主配置和此配置都设置成 opts 格式
             require("lualine").setup({
-                winbar = {
+                -- winbar = {
+                sections = {
                     lualine_c = {
                         {
                             function()
@@ -169,6 +171,7 @@ return {
                         },
                     },
                 },
+                inactive_sections = { lualine_c = { "filename" } }
             })
         end,
     },
