@@ -37,7 +37,6 @@ return {
             explorer = { enabled = true },
             indent = { enabled = true },
             input = { enabled = true },
-            -- picker = { enabled = true },
             notifier = { enabled = true },
             quickfile = { enabled = true },
             scope = { enabled = true },
@@ -45,7 +44,9 @@ return {
             statuscolumn = { enabled = false },
             words = { enabled = true },
             picker = {
+                hidden = true,                 -- 显示 explorer 中的隐藏文件
                 sources = {
+                    files = { hidden = true }, -- 显示 picker 中的隐藏文件
                     explorer = {
                         layout = {
                             auto_hide = { "input" }, -- 隐藏搜索框, 只有按下 / 或者 i 才会显示
