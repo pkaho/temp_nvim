@@ -16,14 +16,14 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     group = augroup("last_loc"),
     callback = function(event)
         local exclude = { "gitcommit" } -- 排除的文件类型列表（例如 Git 提交信息）
-        local buf = event.buf     -- 获取当前缓冲区的 ID
+        local buf = event.buf           -- 获取当前缓冲区的 ID
         -- 如果当前文件类型在排除列表，或者已经处理过，则直接返回
         if vim.tbl_contains(exclude, vim.bo[buf].filetype) or vim.b[buf].lazyvim_last_loc then
             return
         end
-        vim.b[buf].lazyvim_last_loc = true         -- 标记该缓冲区已处理（避免重复执行）
+        vim.b[buf].lazyvim_last_loc = true               -- 标记该缓冲区已处理（避免重复执行）
         local mark = vim.api.nvim_buf_get_mark(buf, '"') -- 获取最后位置标记
-        local lcount = vim.api.nvim_buf_line_count(buf) -- 获取当前缓冲区的总行数
+        local lcount = vim.api.nvim_buf_line_count(buf)  -- 获取当前缓冲区的总行数
         -- 如果标记位置有效（在文件范围内），则跳转到该位置
         if mark[1] > 0 and mark[1] <= lcount then
             pcall(vim.api.nvim_win_set_cursor, 0, mark) -- 安全跳转（避免出错）
@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     group = augroup("text_file_settings"),
     pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
     callback = function()
-        vim.opt_local.wrap = true -- 自动换行
+        vim.opt_local.wrap = true  -- 自动换行
         vim.opt_local.spell = true -- 拼写检查
     end,
 })
