@@ -20,20 +20,20 @@ return {
                 group = "+", -- 快捷键组, 某个单词作为多个快捷键的前缀时显示
             },
             plugins = {
-                marks = true, -- 使用 ' 或 ` 显示 marks 列表
-                registers = true, -- 在 NORMAL 模式使用"显示寄存器中的复制内容
+                marks = true,         -- 使用 ' 或 ` 显示 marks 列表
+                registers = true,     -- 在 NORMAL 模式使用"显示寄存器中的复制内容
                 spelling = {
-                    enabled = true, -- 按下 z= 显示拼写检查列表
+                    enabled = true,   -- 按下 z= 显示拼写检查列表
                     suggestions = 20, -- 列表长度
                 },
                 presets = {
-                    operators = true, -- 显示操作符帮助, 如 d(删除)、y(复制)、c(修改)等
-                    motions = true, -- 显示移动操作帮助, 比如dw(删除到下一个单词开头)
+                    operators = true,    -- 显示操作符帮助, 如 d(删除)、y(复制)、c(修改)等
+                    motions = true,      -- 显示移动操作帮助, 比如dw(删除到下一个单词开头)
                     text_objects = true, -- 显示文本对象帮助, nvim的ai操作
-                    windows = true, -- 显示 Ctrl+w 相关的窗口操作快捷键
-                    nav = true, -- 显示窗口导航相关的其他绑定
-                    z = true, -- 显示 z 快捷键开头的操作, 比如折叠(zd)
-                    g = true, -- 显示 g 快捷键开头的操作, 比如打开路径(gx)
+                    windows = true,      -- 显示 Ctrl+w 相关的窗口操作快捷键
+                    nav = true,          -- 显示窗口导航相关的其他绑定
+                    z = true,            -- 显示 z 快捷键开头的操作, 比如折叠(zd)
+                    g = true,            -- 显示 g 快捷键开头的操作, 比如打开路径(gx)
                 },
             },
         },
@@ -186,7 +186,13 @@ return {
         opts = {
             options = {
                 picker = "snacks",
+                enable_default_searches = true, -- 启用内置的搜索功能
             },
+            search = {
+                uv_script = {
+                    command = "uv python find"
+                }
+            }
         },
     },
 
