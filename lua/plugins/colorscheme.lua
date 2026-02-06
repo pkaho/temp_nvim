@@ -13,7 +13,6 @@ return {
             "kepano/flexoki-neovim",
             "mellow-theme/mellow.nvim",
             "neanias/everforest-nvim",
-            "nyoom-engineering/oxocarbon.nvim",
             "rose-pine/neovim",
             "sainnhe/sonokai",
             "Yazeed1s/oh-lucy.nvim",
@@ -27,7 +26,6 @@ return {
                 { name = "ayu-light",            colorscheme = "ayu-light" },
                 { name = "catppuccin-latte",     colorscheme = "catppuccin-latte" },
                 { name = "flexoki-light",        colorscheme = "flexoki-light" },
-                { name = "oxocarbon",            colorscheme = "oxocarbon",           before = [[vim.o.background='light']] },
                 { name = "rose-pine-dawn",       colorscheme = "rose-pine-dawn" },
 
                 -- Dark Themes
@@ -41,7 +39,6 @@ return {
                 { name = "mellow",               colorscheme = "mellow" },
                 { name = "oh-lucy",              colorscheme = "oh-lucy" },
                 { name = "oh-lucy-evening",      colorscheme = "oh-lucy-evening" },
-                { name = "oxocarbon",            colorscheme = "oxocarbon" },
                 { name = "rose-pine-main",       colorscheme = "rose-pine-main" },
                 { name = "rose-pine-moon",       colorscheme = "rose-pine-moon" },
                 { name = "sonokai-andromeda",    colorscheme = "sonokai",             before = [[vim.g.sonokai_style='andromeda']] },
