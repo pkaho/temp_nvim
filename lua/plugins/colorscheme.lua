@@ -13,6 +13,8 @@ return {
             "kepano/flexoki-neovim",
             "rose-pine/neovim",
             "sainnhe/sonokai",
+            "erikbackman/brightburn.vim",
+            "maxmx03/solarized.nvim",
         },
         priority = 1000,
         opts = {
@@ -24,10 +26,12 @@ return {
                 { name = "catppuccin-latte",     colorscheme = "catppuccin-latte" },
                 { name = "flexoki-light",        colorscheme = "flexoki-light" },
                 { name = "rose-pine-dawn",       colorscheme = "rose-pine-dawn" },
+                { name = "solarized",            colorscheme = "solarized",           before = [[vim.o.background = 'light']] },
 
                 -- Dark Themes
                 { name = "ayu-dark",             colorscheme = "ayu-dark" },
                 { name = "ayu-mirage",           colorscheme = "ayu-mirage" },
+                { name = "brightburn",           colorscheme = "brightburn" },
                 { name = "catppuccin-frappe",    colorscheme = "catppuccin-frappe" },
                 { name = "catppuccin-macchiato", colorscheme = "catppuccin-macchiato" },
                 { name = "catppuccin-mocha",     colorscheme = "catppuccin-mocha" },
@@ -40,6 +44,7 @@ return {
                 { name = "sonokai-espresso",     colorscheme = "sonokai",             before = [[vim.g.sonokai_style='espresso']] },
                 { name = "sonokai-maia",         colorscheme = "sonokai",             before = [[vim.g.sonokai_style='maia']] },
                 { name = "sonokai-shusia",       colorscheme = "sonokai",             before = [[vim.g.sonokai_style='shusia']] },
+                { name = "solarized",            colorscheme = "solarized",           before = [[vim.o.background = 'dark']] },
             },
         },
     },
