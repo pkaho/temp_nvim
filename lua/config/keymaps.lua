@@ -62,10 +62,10 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<CR>", { desc = "Previous Tab" })
 
 -- foldmethod 在手动和表达式之间切换
 map("n", "<leader>uf", function()
-	if vim.opt.foldmethod:get() == "manual" then
-		vim.cmd("set foldmethod=expr")
-	else
-		vim.cmd("set foldmethod=manual")
-	end
-	print("Foldmethod: ", vim.opt.foldmethod:get())
+    if vim.opt.foldmethod:get() == "manual" then
+        vim.cmd("set foldmethod=expr")
+    else
+        vim.cmd("set foldmethod=manual")
+    end
+    print("Foldmethod: ", vim.opt.foldmethod:get())
 end, { desc = "Switch Foldmethod" })
