@@ -1,67 +1,44 @@
 return {
-    -- 主题选择器
     {
-        "zaldih/themery.nvim",
-        lazy = false, -- 必须 eager 加载, 否则 <leader>uc 无法使用
+        "lmantw/themify.nvim",
+        lazy = false,
+        priority = 999,
         keys = {
-            { "<leader>uc", "<cmd>Themery<CR>", desc = "Select Color Theme" },
+            { "<leader>uc", "<cmd>Themify<CR>", desc = "Colorscheme Theme" },
         },
-        dependencies = {
-            -- 所有支持的主题插件作为依赖
-            "Shatur/neovim-ayu",
-            "catppuccin/nvim",
-            "kepano/flexoki-neovim",
-            "rose-pine/neovim",
-            "sainnhe/sonokai",
-            "erikbackman/brightburn.vim",
-            "maxmx03/solarized.nvim",
-        },
-        priority = 1000,
-        opts = {
-            livePreview = true,
-            -- stylua:ignore
-            themes = {
-                -- Light Themes
-                { name = "ayu-light",            colorscheme = "ayu-light" },
-                { name = "catppuccin-latte",     colorscheme = "catppuccin-latte" },
-                { name = "flexoki-light",        colorscheme = "flexoki-light" },
-                { name = "rose-pine-dawn",       colorscheme = "rose-pine-dawn" },
-                { name = "solarized",            colorscheme = "solarized",           before = [[vim.o.background = 'light']] },
 
-                -- Dark Themes
-                { name = "ayu-dark",             colorscheme = "ayu-dark" },
-                { name = "ayu-mirage",           colorscheme = "ayu-mirage" },
-                { name = "brightburn",           colorscheme = "brightburn" },
-                { name = "catppuccin-frappe",    colorscheme = "catppuccin-frappe" },
-                { name = "catppuccin-macchiato", colorscheme = "catppuccin-macchiato" },
-                { name = "catppuccin-mocha",     colorscheme = "catppuccin-mocha" },
-                { name = "flexoki-dark",         colorscheme = "flexoki-dark" },
-                { name = "rose-pine-main",       colorscheme = "rose-pine-main" },
-                { name = "rose-pine-moon",       colorscheme = "rose-pine-moon" },
-                { name = "sonokai-andromeda",    colorscheme = "sonokai",             before = [[vim.g.sonokai_style='andromeda']] },
-                { name = "sonokai-atlantis",     colorscheme = "sonokai",             before = [[vim.g.sonokai_style='atlantis']] },
-                { name = "sonokai-default",      colorscheme = "sonokai",             before = [[vim.g.sonokai_style='default']] },
-                { name = "sonokai-espresso",     colorscheme = "sonokai",             before = [[vim.g.sonokai_style='espresso']] },
-                { name = "sonokai-maia",         colorscheme = "sonokai",             before = [[vim.g.sonokai_style='maia']] },
-                { name = "sonokai-shusia",       colorscheme = "sonokai",             before = [[vim.g.sonokai_style='shusia']] },
-                { name = "solarized",            colorscheme = "solarized",           before = [[vim.o.background = 'dark']] },
-            },
-        },
+        -- 在这里列出主题插件，自动识别所有变体
+        config = function()
+            require("themify").setup({
+                activity = true,
+                -- 只需要写插件地址，自动加载全部主题
+                "Shatur/neovim-ayu",          -- ayu-light / ayu-dark / ayu-mirage
+                "catppuccin/nvim",            -- 全部 4 种风格自动出现
+                "kepano/flexoki-neovim",      -- light / dark
+                "rose-pine/neovim",           -- 全部 3 种风格
+                "sainnhe/sonokai",            -- 全部风格自动出现
+                "erikbackman/brightburn.vim", -- brightburn
+                "maxmx03/solarized.nvim",     -- light / dark
+            })
+        end,
     },
 
-    -- 各主题插件: 仅加载, 不启用 colorscheme
+    -- ==============================================
+    -- 主题列表
+    -- ==============================================
     {
         "catppuccin/nvim",
         name = "catppuccin",
         lazy = true,
-        opts = {
-            flavour = "mocha", -- 默认值, 实际由 themery 切换时决定
-        },
     },
-
     {
         "rose-pine/neovim",
         name = "rose-pine",
         lazy = true,
     },
+    { "Shatur/neovim-ayu",          lazy = true },
+    { "kepano/flexoki-neovim",      lazy = true },
+    { "sainnhe/sonokai",            lazy = true },
+    { "erikbackman/brightburn.vim", lazy = true },
+    { "maxmx03/solarized.nvim",     lazy = true },
 }
