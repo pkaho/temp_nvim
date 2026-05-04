@@ -114,8 +114,9 @@ return {
 
     -- 颜色可视化
     {
-        "norcalli/nvim-colorizer.lua",
-        opts = { "*" },
+        "catgoose/nvim-colorizer.lua",
+        event = "BufReadPre",
+        opts = {},
     },
     -- 颜色选择器
     {
